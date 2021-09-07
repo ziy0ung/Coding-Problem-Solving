@@ -21,6 +21,7 @@ for (let i = 1; i <= inputC; ++i) {
   for (let i = 0; i < arr.length; ++i) {
     newArr.push(+arr[i]);
   }
+
   // * 위 4줄의 코드를 map을 이용해 한줄로 쓸 수 있다.
   // const arr = input[i].split(' ').map((item) => Number(item));
   const testCase = {
