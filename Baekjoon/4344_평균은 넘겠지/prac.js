@@ -1,24 +1,11 @@
-let input = require('fs').readFileSync('./input.txt').toString().split('\n');
-let num = input[0] * 1;
+const fs = require('fs');
+let input = fs.readFileSync('./input.txt').toString();
+input = input.split('\n');
+console.log(input);
+const inputC = +input[0];
+const inputTestCase = [];
 
-for (let i = 1; i <= num; i++) {
-    let score = input[i].split(' ');
-    let num2 = score.shift() * 1;
-    let count = 0;
-
-    let avg = score.reduce((acc, v) => acc += v * 1, 0);
-
-    avg /= num2;
-
-    for (let j = 0; j < num2; j++) {
-        if (score[j] > avg) {
-            count++;
-        }
-    }
-
-    let result = ((count / num2) * 100).toFixed(3);
-    console.log(result + "%")
-    // console.log(avg)
-    
-    
+for (let i = 1; i <= inputC; ++i) {
+    const arr = input[i].split(' ');
+    let newArr = 
 }

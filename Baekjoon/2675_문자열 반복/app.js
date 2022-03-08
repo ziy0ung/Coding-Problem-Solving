@@ -3,15 +3,19 @@ const input = require('fs')
   .toString()
   .split('\n');
 
-let fs = require('fs');
-lef input = fs.readFileSync('/dev/stdin').toString().split('');
+let caseCount = Number(input[0]);
+let result = '';
 
-solution(input[0], input[1]);
-
-function solution(N, numbers) {
-  let sum = 0;
-  for (let i = 0; i < N; ++i) {
-    sum += +numbers[i];
+for (let i = 1; i <= caseCount; i++) {
+  let count = Number(input[i].split(' ')[0]);  // 각 케이스 당 문자 반복 횟수 (R)
+  let cases = input[i].split(' ')[1];  // 케이스 문자열 분리
+  
+  for (let j = 0; j < cases.length; j++) {
+    for (let k = 0; k < count; k++) {
+      result += cases[j];
+    }
   }
-  console.log(sum);
+  result += '\n';
 }
+
+console.log(result);
