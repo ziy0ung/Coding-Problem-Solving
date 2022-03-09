@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const fs = require('fs');
 let input = fs.readFileSync('./input.txt').toString();
 input = input.split('\n');
@@ -9,3 +10,5 @@ for (let i = 1; i <= inputC; ++i) {
     const arr = input[i].split(' ');
     let newArr = 
 }
+=======
+>>>>>>> Stashed changes
