@@ -5,22 +5,30 @@ let speeds = [1, 30, 5];
 // 각 배포마다 몇 개의 기능이 배포되는지
 
 function solution(progresses, speeds) {
-  let answer = [0];
-  let days = progresses.map((progress, index) =>
-    Math.ceil((100 - progress) / speeds[index])
-  );
-  let maxDay = days[0];
+  var answer = []; // 배포된 기능의 수
+  let deploy = 0;
 
-  for (let i = 0, j = 0; i < days.length; i++) {
-    if (days[i] <= maxDay) {
-      answer[j] += 1;
-    } else {
-      maxDay = days[i];
-      answer[++j] = 1;
+  // 모든 작업이 끝날 때까지
+  while (progresses.length > 0) {
+    // 진행률 계싼
+    for (let i = 0; i < progresses.length; i++) {
+      // 작업진도 + 작업속도 = 진행률
+      progresses[i] += speeds[i];
+    } while (true) {
+      // 제일 앞에 있는 기능이 완료된 상태면 배열에서 제거
+      if (progresses[0] >= 100) {
+        deploy += 1;
+        progresses.shift();
+        speeds.shift();
+      } else {
+        if (deploy !== 0) {
+          answer.push(deploy);
+        }
+        deploy = 0;
+        break;
+      }
     }
   }
-
-  return answer;
 }
 
 console.log(solution(progresses, speeds));
