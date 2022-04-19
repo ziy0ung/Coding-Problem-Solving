@@ -1,10 +1,10 @@
+// let fs = require('fs');
 const input = require('fs')
   .readFileSync('./input.txt')
   .toString()
   .split('\n');
 
-let fs = require('fs');
-lef input = fs.readFileSync('/dev/stdin').toString().split('');
+// let input = fs.readFileSync('/dev/stdin').toString().split('');
 
 solution(input[0], input[1]);
 
