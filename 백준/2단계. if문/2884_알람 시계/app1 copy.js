@@ -5,7 +5,7 @@ let input = fs.readFileSync(file).toString().split('\n');
 input = input[0];
 input = input.split(' ').map((item) => Number(item));
 
-solution(input[0], input[1])
+solution(input[0], input[1]);
 
 function solution(H, M) {
     M -= 45;
