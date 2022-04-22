@@ -1,48 +1,22 @@
-/*
-Math.floor()
-    Math.floor() : 소수점 이하를 버림한다.
-    Math.ceil() : 소수점 이하를 올림한다.
-    Math.round() : 소수점 이하를 반올림한다.
-각 자리의 수 구하기
-    1의 자리에 있는 수 구하기: num % 10
-    10의 자리에 있는 수 구하기: Math.floor(num / 10)
-    1의 자리에 있는 수 10의 자리 수로 만들기 : (num % 10) * 10
-*/
+let fs = require('fs');
+let input = fs.readFileSync('/dev/stdin').toString().split('\n');
 
+let inputs = [];
+inputs = input[0].split(' ');
+// console.log(inputs);  //--> [ '10', '5' ]
 
-let input = Number(require('fs').readFileSync('./input.txt').toString());
+let total = Number(inputs[0]);
+let limit = Number(inputs[1]);
 
-let num = input;
-let sum;
-let i = 0;
+let numbers = [];
+numbers = input[1].split(' ');
+// console.log(numbers);  //-->  [ '1', '10', '4', '9', '2', '3', '8', '5', '7', '6' ]
 
-while (true) {
-    i++;
-    
-    sum = Math.floor(num / 10) + num % 10; 
-    num = (num % 10) * 10 + sum % 10;
-
-    if (input === num) {
-        break;
-    }
+result = '';
+for (let i = 0; i < total; i++) {
+  if (Number(numbers[i]) < limit) {
+    result += numbers[i] + ' ';
+  }
 }
 
-// i = 1
-// num = 26
-// sum = 2  + 6 = 8
-// num = 60 + 8 = 68
-
-// i = 2
-// num = 68
-// sum = 6  + 8 = 14
-// num = 80 + 4 = 84
-
-// i = 3
-// num = 84
-// sum = 8  + 4 = 12
-// num = 40 + 2 = 42
-
-// i = 4
-// num = 42
-// sum = 4  + 2 = 6
-// num = 20 + 6 = 26
+console.log(result);
