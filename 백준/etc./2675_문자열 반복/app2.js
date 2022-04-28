@@ -13,7 +13,7 @@ for (let i = 0; i < num1; i++) {
     for (let j = 0; j < str.length; j++) {
         for (let c = 0; c < num2; c++) {
             answer += str[j];
-  	}
+  	    }
     }
     
     console.log(answer);
