@@ -1,17 +1,27 @@
-let arr = [];
-let answer = []; 
+// d(n) = n + 각 자리수들의 합
+function d(n) {
+    let result = n;
+    let resm = n.toString().split('');
 
-for (let i = 1; i <= 10000; i++) {
-    let N = 0;
-    let stringNumber = String(i);
-    for (let j = 0; j < stringNumber.length; j++) {
-
+    for (let i = 0; i < resm.length; i++) {
+        result += parseInt(resm[i]);
     }
+
+    return result;
 }
 
+function solution(N) {
+    let numbers = [0, 0];
+    let res = '';
 
-// 글리버리 수수료 = 총 결제 금액(월수익) X 10%
-//             = 각 결제건 X 10%
+    for (let i = 1; i <= N; i++) {
+        numbers[d(i)] = 1;
+        if (numbers[i] !== 1) {
+            res += i + '\n';
+        }
+    }
 
-// 사코니리뷰 얼리이벤트 종료일(2.22)
-// 2.22 이후 결제건 : 5건
+    console.log(res);
+}
+
+solution(10);

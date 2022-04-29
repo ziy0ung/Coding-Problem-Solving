@@ -15,23 +15,30 @@ n을 d(n)의 생성자라고 한다. 위의 수열에서 33은 39의 생성자�
 */
 
 
-let arr = [];
-let answer = [];
+// d(n) = n + 각 자리수들의 합
+function d(n) {
+    let result = n;
+    let resm = n.toString().split('');
 
-for (let i = 1; i <= 10000; i++) {
-  let N = 0;
-  let stringNumber = String(i);
-  for (let j = 0; j < stringNumber.length; j++) {
-    N += Number(stringNumber[j]);
-  }
-  let nNum = i + N;
-  arr.push(nNum);
+    for (let i = 0; i < resm.length; i++) {
+        result += parseInt(resm[i]);
+    }
+
+    return result;
 }
 
-for (let i = 1; i <= 10000; i++) {
-  if (arr.indexOf(i) === -1) {
-    answer += i + "\n";
-  }
+function solution(N) {
+    let numbers = [0, 0];
+    let res = '';
+
+    for (let i = 1; i <= N; i++) {
+        numbers[d(i)] = 1;
+        if (numbers[i] !== 1) {
+            res += i + '\n';
+        }
+    }
+
+    console.log(res);
 }
 
-console.log(answer);
+solution(10);
