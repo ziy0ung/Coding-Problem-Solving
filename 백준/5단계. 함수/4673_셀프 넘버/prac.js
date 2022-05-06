@@ -1,4 +1,3 @@
-// d(n) = n + 각 자리수들의 합
 function d(n) {
     let result = n;
     let resm = n.toString().split('');
@@ -20,8 +19,7 @@ function solution(N) {
             res += i + '\n';
         }
     }
-
     console.log(res);
 }
 
-solution(10);
+solution(100);
