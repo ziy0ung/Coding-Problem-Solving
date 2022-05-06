@@ -22,7 +22,7 @@ function d(n) {
 
     for (let i = 0; i < resm.length; i++) {
         result += parseInt(resm[i]);
-    }
+    } 
 
     return result;
 }
